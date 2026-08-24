@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+build/
+dist/
+
+# Runtime files and logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Uploaded and private documents
+Job--portal-backend/uploads/*
+!Job--portal-backend/uploads/.gitkeep
+
+# Local editor and operating-system files
+.vscode/*
+!.vscode/settings.json
+.DS_Store
+Thumbs.db

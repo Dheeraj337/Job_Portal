@@ -1,0 +1,86 @@
+.jobs-title {
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+}
+
+/* Button */
+.my-app-btn {
+  display: block;
+  margin: 0 auto 25px;
+  padding: 12px 18px;
+  background: #ff7a18;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.my-app-btn:hover {
+  transform: scale(1.05);
+}
+
+
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.jobs-page {
+  min-height: 100vh;
+  background-image: url("./assets/BIMG1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.jobs-container {
+  width: 100%;
+  max-width: 800px;
+  
+  
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.jobs-container h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.job-card {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  
+}
+
+.job-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg,#1d72f3,#20b2d6);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.jobs-container{
+ margin-top:80px;
+}
+/* .job-btn,
+.apply-btn,
+.primary-btn{
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+} */

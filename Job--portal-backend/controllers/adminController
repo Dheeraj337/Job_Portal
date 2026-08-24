@@ -1,0 +1,76 @@
+const User = require("../models/User");
+const Job = require("../models/Job");
+const Application = require("../models/Application");
+
+/* ================= ADMIN: GET ALL USERS ================= */
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+    return res.status(200).json(users);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+/* ================= ADMIN: DELETE USER ================= */
+const deleteUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    await user.deleteOne();
+    return res.json({ message: "User deleted successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+/* ================= ADMIN: GET ALL JOBS ================= */
+const getAllJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find().populate("createdBy", "name email");
+    return res.status(200).json(jobs);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+/* ================= ADMIN: DELETE JOB ================= */
+const deleteJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id);
+
+    if (!job) {
+      return res.status(404).json({ message: "Job not found" });
+    }
+
+    await job.deleteOne();
+    return res.json({ message: "Job deleted successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+/* ================= ADMIN: GET ALL APPLICATIONS ================= */
+const getAllApplications = async (req, res) => {
+  try {
+    const applications = await Application.find()
+      .populate("job", "title company")
+      .populate("applicant", "name email");
+
+    return res.status(200).json(applications);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = {
+  getAllUsers,
+  deleteUser,
+  getAllJobs,
+  deleteJob,
+  getAllApplications,
+};
